@@ -18,12 +18,14 @@ const Navbar = () => {
     ]
 
     return (
-<header className="max-w-screen-2xl container mx-auto xl:px-24 px-4">
+    <header className="max-w-screen-2xl container mx-auto xl:px-24 px-4">
     <nav className="flex justify-between items-center py-6">
-        <a href="/" className="flex items-center gap-2 text-2xl text-black"> 
-            JobPortal 
-        </a>
-            
+    <a href="/" className="flex items-center gap-2 text-2xl font-bold text-black px-3 py-2 hover:text-blue-600 transition duration-200">
+    <img src="/logo.png" alt="JobPortal Logo" className="w-8 h-8 object-contain" />
+
+    JobPortal
+    </a>
+          
             <ul className='hidden md:flex gap-12'> 
                 {
                 navItems.map(({path,title}) => (
@@ -40,7 +42,7 @@ const Navbar = () => {
 
             <div className='text-base text-primary font-medium space-x-5 hidden lg:block'>
             <Link to='/login' className='py-2 px-5 border rounded'>Log in</Link>
-            <Link to='/sign-up' className='py-2 px-5 border rounded bg-blue-500 text-white'>Sign up</Link>
+            <Link to='/sign-up' className='py-2 px-5 border rounded bg-blue-700 text-white'>Sign up</Link>
             </div>
 
             <div className='md:hidden block'>

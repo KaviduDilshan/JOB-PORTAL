@@ -27,7 +27,7 @@ const Newslatter = () => {
 
             <div className='w-full space-y-4'>
                 <input type="submit" value={"Upload your resum"} className='w-full block py-2 pl-3  border focus:outline-none
-                bg-blue-700 rounded-sm text-white cursor-pointer fontse'/>
+                bg-blue-700  rounded-sm text-white cursor-pointer fontse'/>
 
             </div>
         </div>
