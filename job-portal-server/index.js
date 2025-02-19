@@ -35,18 +35,31 @@ async function run() {
     const db = client.db("mernjobportal")
     const jobscollection = db.collection("demojobs")
 
-    //get
-    app.get("/all-jobs",async(req,res) => {
-      const jobs = await jobscollection.find({}).toArray(
-        res.send(jobs)
-      )
-    })
+    // GET all jobs
+app.get("/all-jobs", async (req, res) => {
+  try {
+    const jobs = await jobscollection.find({}).toArray(); // ✅ Corrected
+    res.send(jobs); // ✅ Send response properly
+  } catch (error) {
+    res.status(500).send({ message: "Error fetching jobs", error });
+  }
+});
 
     //post
     app.post("/post-job", async(req,res) =>{
       const body = req.body
       body.createAt = new Date()
       //console.log(body)
+      const result = await jobscollection.insertOne(body)
+      if(result.insertedId){
+        return res.status(200).send(result)
+      }
+      else{
+        return res.status(404).send ({
+          message:"can not insert try again later",
+          status:false
+        })
+      }
     })
 
 

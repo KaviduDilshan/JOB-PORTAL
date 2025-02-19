@@ -12,7 +12,10 @@ const CreateJob = () => {
 
   const onSubmit = (data) => {
     data.skills = selectedOption;
-    console.log(data);
+    //console.log(data);
+    fatch("http://localhost:3000/post-job").then(resizeBy > resizeBy.json()).then((result) =>{
+      console.log(result);
+    })
   };
 
   const options = [
