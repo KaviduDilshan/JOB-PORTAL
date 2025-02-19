@@ -13,7 +13,10 @@ const CreateJob = () => {
   const onSubmit = (data) => {
     data.skills = selectedOption;
     //console.log(data);
-    fatch("http://localhost:3000/post-job").then(resizeBy > resizeBy.json()).then((result) =>{
+    fatch("http://localhost:3000/post-job",{
+      method:"POST",
+      headers:{"Content = Type":"app"}
+    }).then(resizeBy > resizeBy.json()).then((result) =>{
       console.log(result);
     })
   };
