@@ -38,8 +38,8 @@ async function run() {
     // GET all jobs
 app.get("/all-jobs", async (req, res) => {
   try {
-    const jobs = await jobscollection.find({}).toArray(); // ✅ Corrected
-    res.send(jobs); // ✅ Send response properly
+    const jobs = await jobscollection.find({}).toArray(); 
+    res.send(jobs); 
   } catch (error) {
     res.status(500).send({ message: "Error fetching jobs", error });
   }

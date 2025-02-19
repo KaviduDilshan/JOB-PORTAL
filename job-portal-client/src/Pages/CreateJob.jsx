@@ -6,18 +6,23 @@ const CreateJob = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const {
     register,
-    handleSubmit,
+    handleSubmit,reset,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
     data.skills = selectedOption;
     //console.log(data);
-    fatch("http://localhost:3000/post-job",{
+    fetch("http://localhost:3000/post-job",{
       method:"POST",
-      headers:{"Content = Type":"app"}
-    }).then(resizeBy > resizeBy.json()).then((result) =>{
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify(data)
+    }).then((res) => res.json()).then((result) =>{
       console.log(result);
+      if(result.acknowledge = true){
+        alert("Job Posted Successfully!")
+      }
+      reset()
     })
   };
 
