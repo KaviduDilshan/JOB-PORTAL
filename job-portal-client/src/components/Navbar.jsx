@@ -21,8 +21,7 @@ const Navbar = () => {
     <header className="max-w-screen-2xl container mx-auto xl:px-24 px-4">
     <nav className="flex justify-between items-center py-6">
     <a href="/" className="flex items-center gap-2 text-2xl font-bold text-black px-3 py-2 hover:text-blue-600 transition duration-200">
-    <img src="/logo.png" alt="JobPortal Logo" className="w-8 h-8 object-contain" />
-
+    <img src="/images/logo.png" alt="JobPortal Logo" className="w-8 h-8 object-contain" />
     JobPortal
     </a>
           

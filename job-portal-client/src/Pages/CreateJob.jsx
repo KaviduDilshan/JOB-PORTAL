@@ -59,7 +59,7 @@ const CreateJob = () => {
         <div>
           <label className='block text-lg font-medium text-gray-700'>Company Logo URL</label>
           <input type='text' {...register('companyLogo')} placeholder='Logo URL' 
-            className='w-full border border-gray-300 rounded-md py-2 px-3 focus:ring focus:ring-blue-300' />
+            className='w-full border border-gray-300 rounded-md py-2 px-3 focus:ring focus:ring-blue-300' />   
         </div>
         
         {/* Salary */}
@@ -107,9 +107,9 @@ const CreateJob = () => {
             <label className='block text-lg font-medium text-gray-700'>Experience Level</label>
             <select {...register('experienceLevel')} className='w-full border border-gray-300 rounded-md py-2 px-3 focus:ring focus:ring-blue-300'>
               <option value=''>Choose Experience Level</option>
-              <option value='Entry'>Entry</option>
-              <option value='Mid'>Mid</option>
-              <option value='Senior'>Senior</option>
+              <option value='Any experience'>Any experience</option>
+              <option value='Internship'>Internship</option>
+              <option value='work remotely'>Work remotely</option>
             </select>
           </div>
           <div>
@@ -118,7 +118,7 @@ const CreateJob = () => {
               <option value=''>Choose Employment Type</option>
               <option value='Full-time'>Full-time</option>
               <option value='Part-time'>Part-time</option>
-              <option value='Contract'>Contract</option>
+              <option value='Temporary'>Temporary</option>
             </select>
           </div>
         </div>
