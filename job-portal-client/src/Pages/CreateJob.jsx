@@ -40,88 +40,116 @@ const CreateJob = () => {
   return (
     <div className='max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg'>
       <h2 className='text-3xl font-semibold text-center text-gray-800 mb-6'>Create Job Listing</h2>
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+      <form onSubmit={handleSubmit(onSubmit)} className='space-y-6'>
         {/* Job Title & Company Name */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
           <div>
-            <label className="block text-lg font-medium text-gray-700">Job Title</label>
-            <input type="text" defaultValue="Web Developer" {...register("jobTitle")} 
-              className="w-full border border-gray-300 rounded-md py-2 px-3 focus:ring focus:ring-blue-300" />
+            <label className='block text-lg font-medium text-gray-700'>Job Title</label>
+            <input type='text' {...register('jobTitle')} placeholder='Ex: Web Developer' 
+              className='w-full border border-gray-300 rounded-md py-2 px-3 focus:ring focus:ring-blue-300' />
           </div>
           <div>
-            <label className="block text-lg font-medium text-gray-700">Company Name</label>
-            <input type="text" placeholder="Ex: Microsoft" {...register("CompanyName")} 
-              className="w-full border border-gray-300 rounded-md py-2 px-3 focus:ring focus:ring-blue-300" />
+            <label className='block text-lg font-medium text-gray-700'>Company Name</label>
+            <input type='text' {...register('companyName')} placeholder='Ex: Microsoft' 
+              className='w-full border border-gray-300 rounded-md py-2 px-3 focus:ring focus:ring-blue-300' />
           </div>
         </div>
-
+        
+        {/* Company Logo */}
+        <div>
+          <label className='block text-lg font-medium text-gray-700'>Company Logo URL</label>
+          <input type='text' {...register('companyLogo')} placeholder='Logo URL' 
+            className='w-full border border-gray-300 rounded-md py-2 px-3 focus:ring focus:ring-blue-300' />
+        </div>
+        
         {/* Salary */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
           <div>
-            <label className="block text-lg font-medium text-gray-700">Minimum Salary</label>
-            <input type="text" placeholder="$20k" {...register("minPrice")} 
-              className="w-full border border-gray-300 rounded-md py-2 px-3 focus:ring focus:ring-blue-300" />
+            <label className='block text-lg font-medium text-gray-700'>Minimum Salary</label>
+            <input type='number' {...register('minPrice')} defaultValue='20' 
+              className='w-full border border-gray-300 rounded-md py-2 px-3 focus:ring focus:ring-blue-300' />
           </div>
           <div>
-            <label className="block text-lg font-medium text-gray-700">Maximum Salary</label>
-            <input type="text" placeholder="$120k" {...register("maxPrice")} 
-              className="w-full border border-gray-300 rounded-md py-2 px-3 focus:ring focus:ring-blue-300" />
+            <label className='block text-lg font-medium text-gray-700'>Maximum Salary</label>
+            <input type='number' {...register('maxPrice')} defaultValue='30' 
+              className='w-full border border-gray-300 rounded-md py-2 px-3 focus:ring focus:ring-blue-300' />
           </div>
         </div>
-
+        
         {/* Job Details */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
           <div>
-            <label className="block text-lg font-medium text-gray-700">Salary Type</label>
-            <select {...register("salaryType")} className="w-full border border-gray-300 rounded-md py-2 px-3 focus:ring focus:ring-blue-300">
-              <option value="">Choose Salary Type</option>
-              <option value="Hourly">Hourly</option>
-              <option value="Monthly">Monthly</option>
-              <option value="Yearly">Yearly</option>
+            <label className='block text-lg font-medium text-gray-700'>Salary Type</label>
+            <select {...register('salaryType')} className='w-full border border-gray-300 rounded-md py-2 px-3 focus:ring focus:ring-blue-300'>
+              <option value=''>Choose Salary Type</option>
+              <option value='Hourly'>Hourly</option>
+              <option value='Monthly'>Monthly</option>
+              <option value='Yearly'>Yearly</option>
             </select>
           </div>
           <div>
-            <label className="block text-lg font-medium text-gray-700">Job Location</label>
-            <input type="text" placeholder="Ex: New York" {...register("jobLocation")} 
-              className="w-full border border-gray-300 rounded-md py-2 px-3 focus:ring focus:ring-blue-300" />
+            <label className='block text-lg font-medium text-gray-700'>Job Location</label>
+            <input type='text' {...register('jobLocation')} placeholder='Ex: New York' 
+              className='w-full border border-gray-300 rounded-md py-2 px-3 focus:ring focus:ring-blue-300' />
+          </div>
+        </div>
+        
+        {/* Posting Date */}
+        <div>
+          <label className='block text-lg font-medium text-gray-700'>Posting Date</label>
+          <input type='date' {...register('postingDate')} 
+            className='w-full border border-gray-300 rounded-md py-2 px-3 focus:ring focus:ring-blue-300' />
+        </div>
+        
+        {/* Experience Level & Employment Type */}
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+          <div>
+            <label className='block text-lg font-medium text-gray-700'>Experience Level</label>
+            <select {...register('experienceLevel')} className='w-full border border-gray-300 rounded-md py-2 px-3 focus:ring focus:ring-blue-300'>
+              <option value=''>Choose Experience Level</option>
+              <option value='Entry'>Entry</option>
+              <option value='Mid'>Mid</option>
+              <option value='Senior'>Senior</option>
+            </select>
+          </div>
+          <div>
+            <label className='block text-lg font-medium text-gray-700'>Employment Type</label>
+            <select {...register('employmentType')} className='w-full border border-gray-300 rounded-md py-2 px-3 focus:ring focus:ring-blue-300'>
+              <option value=''>Choose Employment Type</option>
+              <option value='Full-time'>Full-time</option>
+              <option value='Part-time'>Part-time</option>
+              <option value='Contract'>Contract</option>
+            </select>
           </div>
         </div>
 
-        {/* Skills */}
+        {/* Skills Selection */}
         <div>
           <label className="block text-lg font-medium text-gray-700">Required Skills</label>
           <CreatableSelect
-            defaultValue={selectedOption}
+            value={selectedOption}
             onChange={setSelectedOption}
             options={options}
             isMulti
             className="w-full border border-gray-300 rounded-md py-2 px-3 focus:ring focus:ring-blue-300"
           />
         </div>
-
+        
         {/* Job Description */}
         <div>
-          <label className="block text-lg font-medium text-gray-700">Job Description</label>
-          <textarea rows={5} {...register("description")} 
-            className="w-full border border-gray-300 rounded-md py-2 px-3 focus:ring focus:ring-blue-300"
-            placeholder="Describe the job role and responsibilities">
-          </textarea>
+          <label className='block text-lg font-medium text-gray-700'>Job Description</label>
+          <textarea rows={5} {...register('description')} placeholder='Describe the job role and responsibilities'
+            className='w-full border border-gray-300 rounded-md py-2 px-3 focus:ring focus:ring-blue-300'></textarea>
         </div>
-
-        {/* Contact Email */}
-        <div>
-          <label className="block text-lg font-medium text-gray-700">Job Posted By (Email)</label>
-          <input type="email" placeholder="your email" {...register("postedBy")} 
-            className="w-full border border-gray-300 rounded-md py-2 px-3 focus:ring focus:ring-blue-300" />
-        </div>
-
+        
         {/* Submit Button */}
-        <div className="text-center">
-          <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-2 rounded-lg shadow-md">Post Job</button>
+        <div className='text-center'>
+          <button type='submit' className='bg-blue-500 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-lg shadow-md'>Post Job</button>
         </div>
       </form>
     </div>
   );
+  
 };
 
 export default CreateJob;
