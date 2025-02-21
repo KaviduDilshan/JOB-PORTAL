@@ -120,7 +120,6 @@ const Home = () => {
           }
 
           {/* pageination */}
-
           {
               result.length > 0 ?(
                 <div className="flex justify-center mt-4 space-x-8">

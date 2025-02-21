@@ -141,6 +141,15 @@ const CreateJob = () => {
           <textarea rows={5} {...register('description')} placeholder='Describe the job role and responsibilities'
             className='w-full border border-gray-300 rounded-md py-2 px-3 focus:ring focus:ring-blue-300'></textarea>
         </div>
+
+        {/* job posted by */}
+       
+          <div>
+            <label className='block text-lg font-medium text-gray-700'>Job Posted by</label>
+            <input type='email' {...register('postedby')} placeholder='your email' 
+              className='w-full border border-gray-300 rounded-md py-2 px-3 focus:ring focus:ring-blue-300' />
+          </div>
+        
         
         {/* Submit Button */}
         <div className='text-center'>

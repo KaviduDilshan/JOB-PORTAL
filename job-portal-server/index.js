@@ -36,14 +36,25 @@ async function run() {
     const jobscollection = db.collection("demojobs")
 
     // GET all jobs
-app.get("/all-jobs", async (req, res) => {
-  try {
-    const jobs = await jobscollection.find({}).toArray(); 
-    res.send(jobs); 
-  } catch (error) {
-    res.status(500).send({ message: "Error fetching jobs", error });
-  }
-});
+      app.get("/all-jobs", async (req, res) => {
+      try {
+        const jobs = await jobscollection.find({}).toArray(); 
+        res.send(jobs); 
+      } catch (error) {
+        res.status(500).send({ message: "Error fetching jobs", error });
+      }
+      });
+
+      //get jobs by email
+      app.get("/my-jobs/:email", async (req, res) => {
+        //console.log(req.params.email)
+        try {
+          const jobs = await jobscollection.find({postedby:req.params.email}).toArray(); 
+          res.send(jobs); 
+        } catch (error) {
+          res.status(500).send({ message: "Error fetching jobs", error });
+        }
+        });
 
     //post
     app.post("/post-job", async(req,res) =>{
@@ -67,8 +78,7 @@ app.get("/all-jobs", async (req, res) => {
     await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
   } finally {
-    // Ensures that the client will close when you finish/error
-    //await client.close();
+    
   }
 }
 run().catch(console.dir);
