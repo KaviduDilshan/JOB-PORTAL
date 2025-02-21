@@ -46,10 +46,6 @@ const MyJobs = () => {
           alert("Failed to delete job.");
         }
       })
-      .catch((error) => {
-        console.error("Error deleting job:", error);
-        alert("An error occurred while deleting the job.");
-      });
   };
   
 
@@ -81,7 +77,7 @@ const MyJobs = () => {
           <p className="text-center text-gray-600">Loading jobs...</p>
         ) : (
           <section className="py-1">
-            <div className="w-full xl:w-full mb-12 xl:mb-0 px-4 mx-auto mt-5">
+            <div className="w-full xl:w-full mb-12 xl:mb-0 px-20 mx-auto mt-5">
               <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
                 <div className="rounded-t px-4 py-3 border-0">
                   <h3 className="font-semibold text-base text-blueGray-700">
@@ -134,7 +130,7 @@ const MyJobs = () => {
                             <td className="px-6 py-4">
                               <button
                                 className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition"
-                                onClick={() => handleDelete(job.id)}>
+                                onClick={() => handleDelete(job._id)}>
                                 Delete
                               </button>
                             </td>

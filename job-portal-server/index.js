@@ -74,7 +74,7 @@ async function run() {
     })
 
     //delet job
-    app.get("/job/:id", async (req, res) => {
+    app.delete("/job/:id", async (req, res) => {
       const id = req.params.id
       const filter = {_id: new ObjectId(id)}
       const result = await jobscollection.deleteOne(filter)
