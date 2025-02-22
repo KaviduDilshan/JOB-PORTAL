@@ -122,9 +122,9 @@ const MyJobs = () => {
                             <td className="px-6 py-4">${job.minPrice}-${job.maxPrice}</td>
                             <td className="px-6 py-4">
                               <button
-                                className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition"
-                                onClick={() => handleEdit(job.id)}> <Link to={`/edit-jobs/${job.id}`}/>
-                                Edit
+                                className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition" onClick={() => handleEdit(job.id)}> 
+                                <Link to={`/edit-jobs/${job.id}`} className="text-white no-underline">Edit</Link>
+                              
                               </button>
                             </td>
                             <td className="px-6 py-4">

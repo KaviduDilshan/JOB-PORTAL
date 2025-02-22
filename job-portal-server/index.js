@@ -45,6 +45,22 @@ async function run() {
       }
       });
 
+
+      // GET single job using id 
+      app.get("/all-jobs/:id", async (req, res) => {
+        try {
+          const id = req.params.id
+          const jobs = await jobscollection.findOne({
+          _id : new ObjectId(id)
+  
+          })
+          res.send(jobs); 
+        } catch (error) {
+          res.status(500).send({ message: "Error fetching jobs", error });
+        }
+        });
+
+      
       //get jobs by email
       app.get("/my-jobs/:email", async (req, res) => {
         //console.log(req.params.email)
