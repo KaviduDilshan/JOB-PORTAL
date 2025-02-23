@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 function Editjob() {
 
     const{id} = useParams()
-    console.log(id)
+    console.log('Edit job:', id)
 
   return (
     <div>Editjob</div>
