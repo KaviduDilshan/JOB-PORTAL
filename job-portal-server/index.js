@@ -89,14 +89,28 @@ async function run() {
       }
     })
 
-    //delet job
-    app.delete("/job/:id", async (req, res) => {
+    //update job
+    app.patch("/update-job/:id", async (req, res) => {
       const id = req.params.id
-      const filter = {_id: new ObjectId(id)}
-      const result = await jobscollection.deleteOne(filter)
+      const jobData = req.body
+      const filter = {_id:new ObjectId(id)}
+      const options = {upsert:true}
+      const updateDoc = {
+        $set:{
+          ...jobData
+        }
+      }
+      const result = await jobscollection.updateOne(filter,updateDoc,Options)
       res.send(result)
       });
 
+      //delete JOB
+      app.delete("/job/:id", async (req, res) => {
+        const id = req.params.id
+        const filter = {_id: new ObjectId(id)}
+        const result = await jobscollection.deleteOne(filter)
+        res.send(result)
+        });
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });

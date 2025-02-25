@@ -19,7 +19,7 @@ const CreateJob = () => {
       body:JSON.stringify(data)
     }).then((res) => res.json()).then((result) =>{
       console.log(result);
-      if(result.acknowledge = true){
+      if(result.acknowledged === true){
         alert("Job Posted Successfully!")
       }
       reset()

@@ -1,14 +1,26 @@
 import { Link, useLoaderData, useParams } from 'react-router-dom';
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import CreatableSelect from 'react-select/creatable';
+import CreatableSelect from "react-select/creatable";
 
 function Editjob() {
-    const{id} = useParams()
-    //console.log('Edit job:', id)
-
-    const {_id,job,jobTitle,companyName,minPrice,maxPrice,jobLocation,postingDate,
-    salaryType,experienceLevel,companyLogo,employmentType,description,postedby,skills} = useLoaderData ()
+  const { id } = useParams();
+  const {
+    _id,
+    jobTitle,
+    companyName,
+    minPrice,
+    maxPrice,
+    jobLocation,
+    postingDate,
+    salaryType,
+    experienceLevel,
+    companyLogo,
+    employmentType,
+    description,
+    postedby,
+    skills,
+  } = useLoaderData();
 
       const [selectedOption, setSelectedOption] = useState(null);
       const {
@@ -20,14 +32,14 @@ function Editjob() {
       const onSubmit = (data) => {
         data.skills = selectedOption;
         //console.log(data);
-        fetch("http://localhost:3000/post-job",{
-          method:"POST",
+        fetch(`http://localhost:3000/update-job/${id}`,{
+          method:"PATCH",
           headers:{"Content-Type":"application/json"},
           body:JSON.stringify(data)
         }).then((res) => res.json()).then((result) =>{
           console.log(result);
-          if(result.acknowledge = true){
-            alert("Job Posted Successfully!")
+          if(result.acknowledged === true){
+            alert("Job updated Successfully!")
           }
           reset()
         })
@@ -134,7 +146,6 @@ function Editjob() {
         <div>
           <label className="block text-lg font-medium text-gray-700">Required Skills</label>
           <CreatableSelect
-            defaultValue={skills}
             value={selectedOption}
             onChange={setSelectedOption}
             options={options}
